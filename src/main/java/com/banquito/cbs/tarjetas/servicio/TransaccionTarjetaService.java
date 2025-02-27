@@ -5,6 +5,7 @@ import com.banquito.cbs.tarjetas.modelo.TransaccionTarjeta;
 import com.banquito.cbs.tarjetas.repositorio.TransaccionTarjetaRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -30,9 +31,9 @@ public class TransaccionTarjetaService {
         return repositorio.findByidCuentaTarjeta(idCuentaTarjeta);
     }
 
-    public void registrarTransaccion(TransaccionTarjeta transaccion, Boolean diferido, Integer cuotas, Boolean conIntereses) {
+    public void registrarTransaccion(TransaccionTarjeta transaccion, Boolean diferido, Integer cuotas, BigDecimal interes) {
         if (diferido)
-            this.diferidoService.crearDiferido(transaccion, cuotas, conIntereses);
+            this.diferidoService.crearDiferido(transaccion, cuotas, interes);
 
         this.repositorio.save(transaccion);
     }

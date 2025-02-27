@@ -20,4 +20,8 @@ public class TransaccionTarjetaDto {
     private Boolean aplicaImpuesto;
     private String transaccionEncriptada;
     private String codigoTransaccionPadre;
+
+    private Boolean diferido;
+    private Integer cuotas;
+    private Boolean conIntereses;
 }

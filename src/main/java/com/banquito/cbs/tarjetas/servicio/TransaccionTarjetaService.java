@@ -1,6 +1,5 @@
 package com.banquito.cbs.tarjetas.servicio;
 
-import com.banquito.cbs.tarjetas.dto.TransaccionTarjetaDto;
 import com.banquito.cbs.tarjetas.excepcion.EntidadNoEncontradaException;
 import com.banquito.cbs.tarjetas.modelo.TransaccionTarjeta;
 import com.banquito.cbs.tarjetas.repositorio.TransaccionTarjetaRepository;
@@ -11,9 +10,11 @@ import java.util.List;
 @Service
 public class TransaccionTarjetaService {
     private final TransaccionTarjetaRepository repositorio;
+    private final DiferidoService diferidoService;
 
-    public TransaccionTarjetaService(TransaccionTarjetaRepository repositorio) {
+    public TransaccionTarjetaService(TransaccionTarjetaRepository repositorio, DiferidoService diferidoService) {
         this.repositorio = repositorio;
+        this.diferidoService = diferidoService;
     }
 
     public TransaccionTarjeta buscarPorId(String id) {
@@ -29,7 +30,10 @@ public class TransaccionTarjetaService {
         return repositorio.findByidCuentaTarjeta(idCuentaTarjeta);
     }
 
-    public void registrarTransaccion(TransaccionTarjeta transaccion) {
+    public void registrarTransaccion(TransaccionTarjeta transaccion, Boolean diferido, Integer cuotas, Boolean conIntereses) {
+        if (diferido)
+            this.diferidoService.crearDiferido(transaccion, cuotas, conIntereses);
+
         this.repositorio.save(transaccion);
     }
 }

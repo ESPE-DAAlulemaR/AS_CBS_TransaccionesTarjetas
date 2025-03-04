@@ -11,7 +11,7 @@
 	<groupId>com.banquito.cbs</groupId>
 	<artifactId>txtarjetas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>tarjetas</name>
+	<name>txtarjetas</name>
 	<description>Microservicio de Tarjetas</description>
 	<url/>
 	<licenses>

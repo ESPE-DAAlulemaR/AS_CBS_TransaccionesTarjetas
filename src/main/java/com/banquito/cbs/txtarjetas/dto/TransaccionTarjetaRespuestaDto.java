@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @ToString
 public class TransaccionTarjetaRespuestaDto {
-    private Integer _id;
+    private String _id;
     private String codigoUnico;
     private LocalDateTime fechaHora;
     private BigDecimal monto;

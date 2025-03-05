@@ -23,5 +23,5 @@ public class TransaccionTarjetaDto {
 
     private Boolean diferido;
     private Integer cuotas;
-    private BigDecimal conIntereses;
+    private BigDecimal interes;
 }

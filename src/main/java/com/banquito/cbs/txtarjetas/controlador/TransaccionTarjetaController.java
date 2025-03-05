@@ -80,7 +80,7 @@ public class TransaccionTarjetaController {
             @ApiResponse(responseCode = "201", description = "Transacción registrada exitosamente"),
             @ApiResponse(responseCode = "400", description = "Datos inválidos en la solicitud")
     })
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<TransaccionTarjetaRespuestaDto> almacenar(
             @Parameter(description = "Objeto con la información de la transacción a registrar", required = true)
             @RequestBody TransaccionTarjetaDto transaccionPeticion
@@ -90,7 +90,7 @@ public class TransaccionTarjetaController {
                 transaccionTarjeta,
                 transaccionPeticion.getDiferido(),
                 transaccionPeticion.getCuotas(),
-                transaccionPeticion.getConIntereses()
+                transaccionPeticion.getInteres()
         );
         TransaccionTarjetaRespuestaDto respuesta = this.respuestaMapper.toDto(transaccionTarjeta);
         return ResponseEntity.status(HttpStatus.CREATED).body(respuesta);

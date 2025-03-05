@@ -22,6 +22,8 @@ public class TransaccionTarjeta {
     private String codigoUnico;
     private LocalDateTime fechaHora;
     private BigDecimal monto;
+    private String moneda;
+    private String pais;
     private String cuentaComercio;
     private String referencia;
     private Boolean aplicaImpuesto;
